@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>PhotoFolio Bootstrap Template - Gallery Single</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Cardo:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: PhotoFolio - v1.2.0
+  * Template URL: https://bootstrapmade.com/photofolio-bootstrap-photography-website-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center  me-auto me-lg-0">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <!-- <img src="assets/img/logo.png" alt=""> -->
+        <h1>DesignFolio</h1>
+      </a>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li class="dropdown"><a href="#"><span>Gallery</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+            <ul>
+              <li><a href="gallery.html">Small Modelling Projects</a></li>
+              <li><a href="wooden-box.html">Wooden Box Project</a></li>
+              <li><a href="music-box.html" class="active">Music Box Project</a></li>
+            </ul>
+          </li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav><!-- .navbar -->
+
+      <div class="header-social-links">
+        <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+        <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+        <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+        <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></i></a>
+      </div>
+      <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+      <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+
+    </div>
+  </header><!-- End Header -->
+
+  <main id="main" data-aos="fade" data-aos-delay="1500">
+
+    <!-- ======= End Page Header ======= -->
+    <div class="page-header d-flex align-items-center">
+      <div class="container position-relative">
+        <div class="row d-flex justify-content-center">
+          <div class="col-lg-6 text-center">
+            <h2>Music Box</h2>
+            <p>This page is dedicated to showcasing the music box I've made and providing some anecdotes about its making process.</p>
+          </div>
+        </div>
+      </div>
+    </div><!-- End Page Header -->
+
+    <!-- ======= Gallery Single Section ======= -->
+    <section id="gallery" class="gallery">
+      <div class="container">
+        <div class="row justify-content-between gy-4 mt-4">
+
+          <div class="col-lg-8">
+            <div class="portfolio-description">
+              <div id="music-box">
+                <p>
+                    I created this music box for the final assignment of my design module. For this project, I not only had to create a box from scratch, I also had to let it actually play music.
+                    In order to achieve that, I had to use something called a microcontroller to, as the name suggests, control the whole music-playing process.
+                </p>
+                <p>
+                    First off, to create a music playing system, I need to gather some components first. Obviously I need a microcontroller, but that is settled as my school distributes Arduino Uno boards
+                    to each student for this assignment which also came with a bread board. Other than that, I need some dupont wires and resistors for the circuit. I also need a buzzer to generate the sounds.
+                    As I want the box to play music only if a button is pressed, I need a button as well. After gathering the parts, I need to arrange the circuits. This process is extremely troublesome as I need to
+                    connect all the wires, resistors and other parts between the microcontroller and the bread board correctly and I also need write some code to get my mechanism working.
+                    So after some research and a lot of trail-and-error, here is the working circuit I made for playing music from the buzzer: 
+                </p>
+                <img src="assets\img\gallery\Music Box Circuit.png">
+                <p class="image-label">Circuit for the Music Playing Mechanic</p>
+                <p>
+                    And here is the code I've written for the music playing mechanism.
+                </p>
+                <pre>
+                    // constants won't change. They're used here to set pin numbers:
+                      const int buttonPin = 3;     // the number of the pushbutton pin
+                      const int ledPin =  13;      // the number of the LED pin
+
+                      // variables will change:
+                      int buttonState = 0;         // variable for reading the pushbutton status
+
+                      int speakerPin = 9;
+                      int tempo = 300;
+
+
+
+                      int length = 35;
+                      char notes[] = "eefggfedccdeedd eefggfedccdedcc"; // a space represents a rest
+                      int beats[] = { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1 };
+                      //              e, e, f, g, g, f, e, d, c, c, d, e, e, d, d,    e, e, f, g, g, f, e, d, c, c, d, e, d, c, c
+
+
+
+                      void playTone(int tone, int duration) {
+                        for (long i = 0; i < duration * 1000L; i += tone * 2) {
+                          digitalWrite(speakerPin, HIGH);
+                          delayMicroseconds(tone);
+                          digitalWrite(speakerPin, LOW);
+                          delayMicroseconds(tone);
+                        }
+                      }
+
+                      void playNote(char note, int duration) {
+                        char names[] = { 'c', 'd', 'e', 'f', 'g', 'a', 'b', 'C', 'D' };
+                        int tones[] = { 1915, 1700, 1519, 1432, 1275, 1136, 1014, 956, 759 };
+                        
+                        // play the tone corresponding to the note name
+                        for (int i = 0; i < 9; i++) {
+                          if (names[i] == note) {
+                            playTone(tones[i], duration);
+                          }
+                        }
+                      }
+
+                      void setup() {
+                        // initialize the LED pin as an output:
+                        pinMode(ledPin, OUTPUT);
+                        pinMode(speakerPin, OUTPUT);
+                        
+                        // initialize the pushbutton pin as an input:
+                        pinMode(buttonPin, INPUT);
+                      }
+
+                      void loop() {
+                        // read the state of the pushbutton value:
+                        buttonState = digitalRead(buttonPin);
+
+                        // check if the pushbutton is pressed. If it is, the buttonState is HIGH:
+                        if (buttonState == HIGH) {
+                          // turn LED on:
+                          digitalWrite(ledPin, HIGH);
+                          
+                          for (int i = 0; i < length; i++) {
+                            if (notes[i] == ' ') {
+                              delay(beats[i] * tempo); // rest
+                            } else {
+                              playNote(notes[i], beats[i] * tempo);
+                            }
+
+                          // pause between notes
+                            delay(tempo / 2); 
+                          }
+                          
+                        } else {
+                          // turn LED off:
+                          digitalWrite(ledPin, LOW);
+                        }
+                      }
+                  </pre>
+                <p>
+                    Using this piece of code, the buzzer, which is connected to pin 9, will play "Ode to Joy" when the button, which is connected to pin 3, is pressed.
+                    In order to change the tune, the value of the char array variable "notes" has to be changed. On top of that, the values in the beats array also need to change
+                    according to the length of the notes array as one value in the beats array needs to corrospond to one value in the notes array.
+                </p>
+                <p>
+                    After that, it is time to make the box. As the music box simply needs to hold the microcontroller, bread board and all the other parts of the circuit, the structure
+                    is not too complicated. I first created the main body of the box, which is basically a hollowed-out cuboid, and a cover, which is basically a shorter version of the
+                    main body. In order to be aesthetically pleasing, I used the text function of Fusion 360 and engraved the text "Music Box" onto it and changed the font to "Harlow Solid Italic".
+                    I chose the font because I find it suitable for the 20s and 30s retro style I'm going for. Also, at the back of the box, I made a cavity to allow the wire that connects the Arduino board
+                    to a power source to pass through.
+                </p>
+                <p>
+                    Lastly, I decided to make a cover that I can insert inside the box to conceal all the wires connected to the microcontroller to make the box look less messy.
+                    I designed the cover so that it resemebles those vinyl record players in the olden days. With that, the modelling process of the box is finished.
+                </p>
+                <p>
+                    After modelling the box, it's time to physically print it using the laser cutter. But before I could do that, there's still one more thing I need to do.
+                    You might notice that the box this time does not have finger joints. Without them, it's hard to connect the printed plank together. After some googling, I found a website called
+                    <a href="https://makeabox.io">makeabox.io</a>, which can generate a layout map of a box based on the dimensions you provided to it. This helps reduce a lot of time manually creating them by myself.
+                    Here is an example of a map created by the website:
+                </p>
+                <img src="assets\img\gallery\Music Box Outline.png">
+                <p class="image-label">Outline of Main Body of the Box</p>
+                <p>
+                    I inserted the text and the cavity myself based on their position and size on the model I've made prior. After getting the outline map, it's just a matter of printing them and
+                    glueing them together. This time, I used wood glue instead of hot glue. The reason for the switch is because although hot glue is very sturdy and does not break easily, it leaves
+                    a lot of marks on the box that is very hard to clean. It also occupies some space in between the planks, making the box look very dirty. But wood glue is different. It becomes transparent when dried
+                    and it occupies little space compared to hot glue and it's almost as sturdy as hot glue.
+                </p>
+                <p>
+                    After that, I put the Arduino board and the vinyl board cover in place. There is still one more thing left to do. I need to find a way to attach the box cover to the main box body.
+                    To do that, I decided to repurpose some hinges from an old box and attach them in-between the cover and the main body using screws. And viola! My music box is finished.
+                    Here is what the box look like from the front and the back!
+                </p>
+                <img src="assets\img\gallery\Printed Music Box Front.png">
+                <p class="image-label">Front View of the Printed Music Box</p>
+                <img src="assets\img\gallery\Printed Music Box Back.png">
+                <p class="image-label">Back View of the Printed Music Box</p>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Gallery Single Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer" class="footer">
+    <div class="container">
+      <!-- <div class="copyright">
+        &copy; Copyright <strong><span>PhotoFolio</span></strong>. All Rights Reserved
+      </div> -->
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/photofolio-bootstrap-photography-website-template/ -->
+        Website Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <div id="preloader">
+    <div class="line"></div>
+  </div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
